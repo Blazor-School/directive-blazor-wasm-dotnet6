@@ -1,0 +1,18 @@
+﻿@page "/prevent-default-example"
+
+<h3>PreventDefaultExample</h3>
+<form>
+    <div>
+        <label for="blazor-school-checkbox">Without preventDefault:</label>
+        <input type="checkbox" id="blazor-school-checkbox" @onclick=' _ => Message = ""' />
+    </div>
+    <div>
+        <label for="blazor-school-checkbox">With preventDefault:</label>
+        <input type="checkbox" id="blazor-school-checkbox" @onclick=' _ => Message = "You cannot tick this checkbox because we have preventDefault enabled."' @onclick:preventDefault />
+    </div>
+</form>
+<div>@Message</div>
+
+@code {
+    public string Message { get; set; } = "";
+}
